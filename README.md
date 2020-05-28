@@ -1,4 +1,4 @@
-# Naks.js
+# iBial
 
 > A minimalistic Nuxt starter template using Vuetify and API Repository Pattern. Naks naman!
 
