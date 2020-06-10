@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   theme: {
-    dark: true,
+    light: true,
     themes: {
       dark: {
         primary: colors.blue.darken2,
