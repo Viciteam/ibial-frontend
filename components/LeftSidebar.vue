@@ -6,9 +6,12 @@
         <span class="overline text-capitalize"
           ><a href="#" class="pl-10">See All</a></span
         >
+        <v-btn icon class="scrollLeft">
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
       </div>
       <div class="connections px-3">
-        <v-row class="flex-nowrap overflow-auto">
+        <v-row class="flex-nowrap overflow-hidden">
           <v-col v-for="item in connection" :key="item.image">
             <v-img :src="item.image" width="100px"> </v-img>
             <div class="py-1 text-center">
@@ -21,7 +24,7 @@
               <v-icon style="font-size:15px;">mdi-rss</v-icon>
               <span style="font-size:11px;">30k followers</span>
             </div>
-            <div class="pl-2">
+            <div class="py-2">
               <v-btn
                 small
                 width="100%"
@@ -43,9 +46,12 @@
         <span class="sidebar_ellipses"
           ><a href="#"><img src="images/ellipsis.png" alt=""/></a
         ></span>
+        <v-btn icon class="scrollLeft">
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
       </div>
       <div class="connections px-3">
-        <v-row class="flex-nowrap overflow-auto">
+        <v-row class="flex-nowrap overflow-hidden">
           <v-col v-for="item in connectionsub" :key="item.image" class="pr-0">
             <v-img :src="item.image"> </v-img>
             <div>
@@ -58,13 +64,13 @@
                 >32k Members • 10k Post per day</span
               >
             </div>
-            <div>
+            <div class="py-2">
               <v-btn
                 small
                 outlined
                 width="100%"
                 color="blue"
-                class="text-capitalize"
+                class="text-capitalize py-2"
               >
                 Join Group
               </v-btn>
@@ -227,5 +233,13 @@ export default {
   position: absolute;
   right: 15px;
   top: 6px;
+}
+.scrollLeft {
+  position: absolute;
+  top: 95px;
+  left: 0px;
+  background: #ffffff;
+  width: 35px;
+  z-index: 1;
 }
 </style>
