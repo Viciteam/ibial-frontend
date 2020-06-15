@@ -12,7 +12,12 @@
         </div>
       </v-card-actions>
       <v-card-text class="pt-0 pb-0">
-        <v-textarea class="pt-0" rows="3" placeholder="What is in your mind?">
+        <v-textarea
+          v-model="textPost"
+          class="pt-0"
+          rows="3"
+          placeholder="What is in your mind?"
+        >
         </v-textarea>
       </v-card-text>
       <v-card-actions class="pt-0 pb-3 px-3">
@@ -31,6 +36,7 @@
             color="primary"
             depressed
             width="30%"
+            @click="submitPost"
             >Post
           </v-btn>
         </div>
@@ -54,6 +60,70 @@
         </v-col>
       </v-row>
     </div>
+
+    <v-card
+      v-for="item in post.slice().reverse()"
+      :key="item.id"
+      class="mb-3"
+      flat
+    >
+      <v-card-title>
+        <div class="postUserHeading">
+          <img src="images/post_user_image.png" alt="" />
+          <div class="postUserDetails pl-3">
+            <div class="postUserName">
+              <h5>{{ item.name }}</h5>
+            </div>
+            <div class="postUserName_subtitle">
+              <img
+                src="images/web.svg"
+                width="18px"
+                style="padding-bottom:5px;"
+              /><span
+                class="pl-1 overline text-capitalize mb-3 postUserName_time"
+                >Public 10:10PM</span
+              >
+            </div>
+          </div>
+          <div class="postUserHeading_ellipses">
+            <a href="#"><img src="images/ellipsis.png" alt=""/></a>
+          </div>
+        </div>
+      </v-card-title>
+      <v-card-text class="pb-0">
+        <v-row>
+          <v-col cols="6" class="pt-0 text--primary">
+            {{ item.post }}
+          </v-col>
+        </v-row>
+      </v-card-text>
+
+      <div class="postComments_details pl-3 pb-2 d-flex">
+        <div class="postComments_icons">
+          <a href="#">
+            <img src="images/thumb-up-outline.svg" width="16px" alt="" />
+          </a>
+        </div>
+        <div class="postComments_icons">
+          <a href="#">
+            <img src="images/thumb-down-outline.svg" width="16px" alt="" />
+          </a>
+        </div>
+        <div class="postComments_icons">
+          <a href="#">
+            <img src="images/comment-outline.svg" width="16px" alt="" />
+          </a>
+        </div>
+        <div class="postComments_icons">
+          <a href="#">
+            <img src="images/share-outline.svg" width="16px" alt="" />
+          </a>
+        </div>
+        <div class="postComments_total caption">
+          15k Comments
+        </div>
+      </div>
+    </v-card>
 
     <v-card class="mb-3" flat>
       <v-card-title>
@@ -444,7 +514,36 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      textPost: '',
+      id: 1,
+      show: false,
+      post: [
+        {
+          id: 1,
+          name: 'Lorem Ipsum',
+          post: 'Sample Post'
+        }
+      ]
+    }
+  },
+  methods: {
+    submitPost() {
+      const postUserDetails = {
+        id: this.id++,
+        name: 'Lorem Ipsum',
+        post: this.textPost
+      }
+      if (this.textPost != '') {
+        this.post.push(postUserDetails)
+        this.textPost = ''
+        this.show = true
+      }
+    }
+  }
+}
 </script>
 <style>
 .postPage {

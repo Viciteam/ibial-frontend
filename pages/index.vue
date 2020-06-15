@@ -1,5 +1,10 @@
 <template>
-  <v-card class="mx-auto overflow-hidden" color="#F2F5FF" height="100%">
+  <v-card
+    id="scroll-target"
+    class="mx-auto overflow-hidden"
+    color="#F2F5FF"
+    height="100%"
+  >
     <v-app-bar flat app>
       <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon>
       <v-img
@@ -131,7 +136,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-row class="innerBody">
+    <v-row v-scroll:#scroll-target="onScroll" class="innerBody">
       <!--LeftSidebar--->
       <v-col class="d-flex">
         <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
@@ -164,8 +169,15 @@ export default {
   data: () => ({
     drawer: false,
     mini: true,
-    group: ''
-  })
+    group: '',
+    offsetTop: 0
+  }),
+  methods: {
+    onScroll(e) {
+      this.offsetTop = e.target.scrollTop
+      console.log('ScrollTop-' + this.offsetTop)
+    }
+  }
 }
 </script>
 
