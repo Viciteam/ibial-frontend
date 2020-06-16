@@ -22,13 +22,14 @@
       </v-card-text>
       <v-card-actions class="pt-0 pb-3 px-3">
         <div class="postButton_icons">
-          <v-btn icon>
+          <v-btn icon @click="$refs.inputUpload.click()">
             <v-icon>mdi-image-multiple-outline</v-icon>
           </v-btn>
-          <v-btn icon>
+          <input v-show="false" ref="inputUpload" type="file" />
+          <v-btn icon @click="$refs.inputUpload.click()">
             <v-icon>mdi-video-vintage</v-icon>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon @click="$refs.inputUpload.click()">
             <v-icon>mdi-link-variant</v-icon>
           </v-btn>
           <v-btn
