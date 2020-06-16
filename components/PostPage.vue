@@ -25,7 +25,6 @@
           <v-btn icon @click="$refs.inputUpload.click()">
             <v-icon>mdi-image-multiple-outline</v-icon>
           </v-btn>
-          <input v-show="false" ref="inputUpload" type="file" />
           <v-btn icon @click="$refs.inputUpload.click()">
             <v-icon>mdi-video-vintage</v-icon>
           </v-btn>
@@ -42,6 +41,16 @@
           </v-btn>
         </div>
       </v-card-actions>
+      <div class="pl-6">
+        <input
+          v-show="false"
+          ref="inputUpload"
+          type="file"
+          accept="image/*"
+          @change="previewImage"
+        />
+        <img width="100px" class="preview" :src="imageData" />
+      </div>
     </v-card>
     <div class="postContent_button">
       <v-row>
@@ -93,8 +102,13 @@
       </v-card-title>
       <v-card-text class="pb-0">
         <v-row>
-          <v-col cols="6" class="pt-0 text--primary">
+          <v-col class="pt-0 text--primary">
             {{ item.post }}
+          </v-col>
+        </v-row>
+        <v-row v-show="item.image != ''">
+          <v-col>
+            <img width="100%" class="preview" :src="item.image" />
           </v-col>
         </v-row>
       </v-card-text>
@@ -537,11 +551,13 @@ export default {
       textPost: '',
       id: 1,
       show: false,
+      imageData: '',
       post: [
         {
           id: 1,
           name: 'Lorem Ipsum',
-          post: 'Sample Post'
+          post: 'Sample Post',
+          image: ''
         }
       ]
     }
@@ -551,12 +567,31 @@ export default {
       const postUserDetails = {
         id: this.id++,
         name: 'Lorem Ipsum',
-        post: this.textPost
+        post: this.textPost,
+        image: this.imageData
       }
-      if (this.textPost != '') {
+      if (this.textPost != '' || this.imageData != '') {
         this.post.push(postUserDetails)
         this.textPost = ''
         this.show = true
+        this.imageData = ''
+      }
+    },
+    previewImage: function(event) {
+      // Reference to the DOM input element
+      var input = event.target
+      // Ensure that you have a file before attempting to read it
+      if (input.files && input.files[0]) {
+        // create a new FileReader to read this image and convert to base64 format
+        var reader = new FileReader()
+        // Define a callback function to run, when FileReader finishes its job
+        reader.onload = (e) => {
+          // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+          // Read image as base64 and set to imageData
+          this.imageData = e.target.result
+        }
+        // Start the reader job - read file as a data url (base64 format)
+        reader.readAsDataURL(input.files[0])
       }
     }
   }
