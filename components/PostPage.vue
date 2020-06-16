@@ -124,6 +124,22 @@
           15k Comments
         </div>
       </div>
+      <div class="postUser_comments px-3">
+        <div class="postUser_comments_image">
+          <img src="images/user.png" class="postUser_comments_icon" />
+        </div>
+        <div class="postUser_comments_input">
+          <v-text-field
+            label="Write a comment"
+            background="#EEF2F3"
+            dense
+            rounded
+            solo
+            flat
+          >
+          </v-text-field>
+        </div>
+      </div>
     </v-card>
 
     <v-card class="mb-3" flat>
