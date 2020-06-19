@@ -17,6 +17,7 @@
                   <v-col cols="12" class="py-0">
                     <v-text-field
                       v-model="email_login"
+                      :rules="emailRules"
                       label="Email"
                     ></v-text-field>
                   </v-col>
@@ -127,7 +128,11 @@
               <v-stepper-content step="2" class="pa-0">
                 <v-row>
                   <v-col cols="12" class="py-0">
-                    <v-text-field v-model="email" label="Email"></v-text-field>
+                    <v-text-field
+                      v-model="email"
+                      :rules="emailRules"
+                      label="Email"
+                    ></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -146,7 +151,7 @@
                       class="signup_btn"
                       color="primary"
                       width="100%"
-                      dark
+                      :disabled="email == '' || !checkbox"
                       @click="e1 = 3"
                     >
                       <span class="text-capitalize"> Continue</span>
@@ -382,7 +387,11 @@ export default {
       email_login: '',
       password_login: '',
       success: '',
-      color: ''
+      color: '',
+      emailRules: [
+        (v) => !!v || 'E-mail is required.',
+        (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ]
     }
   },
   methods: {
@@ -404,6 +413,7 @@ export default {
             ;(this.e1 = 1), (this.success = 'Successfully Registered..')
             this.popup = true
             this.color = 'success'
+            window.open('/', '_self')
           }
         })
         .catch((err) => {
@@ -424,6 +434,7 @@ export default {
             this.success = 'Successfully Logged In..'
             this.popup = true
             this.color = 'success'
+            window.open('/', '_self')
           }
         })
         .catch((err) => {
