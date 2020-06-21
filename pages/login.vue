@@ -126,32 +126,34 @@
               </v-stepper-content>
               <!-- SIGN UP --->
               <v-stepper-content step="2" class="pa-0">
-                <v-row>
-                  <v-col cols="12" class="py-0">
-                    <v-text-field
-                      v-model="email"
-                      :rules="emailRules"
-                      label="Email"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-                <v-row>
-                  <v-col cols="12" class="py-0 text-center">
-                    <div class="email__agreement">
-                      <v-checkbox v-model="checkbox"></v-checkbox>
-                      <span style="font-size:11px; padding-top:26px;"
-                        >By joining I agree to receive email from ibial.</span
-                      >
-                    </div>
-                  </v-col>
-                </v-row>
+                <v-form v-model="isFormValid">
+                  <v-row>
+                    <v-col cols="12" class="py-0">
+                      <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Email"
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="12" class="py-0 text-center">
+                      <div class="email__agreement">
+                        <v-checkbox v-model="checkbox"></v-checkbox>
+                        <span style="font-size:11px; padding-top:26px;"
+                          >By joining I agree to receive email from ibial.</span
+                        >
+                      </div>
+                    </v-col>
+                  </v-row>
+                </v-form>
                 <v-row>
                   <v-col cols="12" class="text-center py-0">
                     <v-btn
                       class="signup_btn"
                       color="primary"
                       width="100%"
-                      :disabled="email == '' || !checkbox"
+                      :disabled="email == '' || !checkbox || !isFormValid"
                       @click="e1 = 3"
                     >
                       <span class="text-capitalize"> Continue</span>
@@ -261,7 +263,9 @@
                       class="signup_btn"
                       color="primary"
                       width="100%"
-                      dark
+                      :disabled="
+                        name == '' || password == '' || c_password == ''
+                      "
                       @click="register"
                     >
                       <span class="text-capitalize">Sign Up</span>
@@ -388,6 +392,7 @@ export default {
       password_login: '',
       success: '',
       color: '',
+      isFormValid: false,
       emailRules: [
         (v) => !!v || 'E-mail is required.',
         (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
@@ -396,29 +401,35 @@ export default {
   },
   methods: {
     register() {
-      let params = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        c_password: this.c_password
+      if (this.password != this.c_password) {
+        this.success = 'Password did not match..'
+        this.popup = true
+        this.color = 'warning'
+      } else {
+        let params = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          c_password: this.c_password
+        }
+        this.$api.accounts.account
+          .register(params)
+          .then((response) => {
+            if (response.success) {
+              window.open('/', '_self')
+              this.name = ''
+              this.password = ''
+              this.c_password = ''
+              this.email = ''
+              this.success = 'Successfully Registered..'
+              this.popup = true
+              this.color = 'success'
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
       }
-      this.$api.accounts.account
-        .register(params)
-        .then((response) => {
-          if (response.success) {
-            this.name = ''
-            this.password = ''
-            this.c_password = ''
-            this.email = ''
-            ;(this.e1 = 1), (this.success = 'Successfully Registered..')
-            this.popup = true
-            this.color = 'success'
-            window.open('/', '_self')
-          }
-        })
-        .catch((err) => {
-          console.log(err)
-        })
     },
     login() {
       let params = {
@@ -429,12 +440,12 @@ export default {
         .login(params)
         .then((response) => {
           if (response.success) {
+            window.open('/', '_self')
             this.email_login = ''
             this.password_login = ''
             this.success = 'Successfully Logged In..'
             this.popup = true
             this.color = 'success'
-            window.open('/', '_self')
           }
         })
         .catch((err) => {
