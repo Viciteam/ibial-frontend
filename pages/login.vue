@@ -349,6 +349,7 @@
           </v-stepper>
         </v-card>
       </v-col>
+
       <v-footer class="login__footer">
         <v-spacer></v-spacer>
         <div class="text-center">
@@ -375,8 +376,8 @@
     </v-snackbar>
   </v-card>
 </template>
+
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
@@ -448,7 +449,7 @@ export default {
             this.color = 'success'
           }
         })
-        .catch((err) => {
+        .catch(() => {
           this.popup = true
           this.color = 'warning'
           this.success = 'Login Failed...'
