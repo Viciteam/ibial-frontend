@@ -7,35 +7,36 @@
   >
     <Header />
 
-    <v-row v-scroll:#scroll-target="onScroll" class="innerBody">
+    <v-row class="innerBody">
       <!--LeftSidebar--->
       <v-col class="d-flex">
         <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
-        <LeftSidebar />
+        <Sidebar @navSidebar="NavText" />
         <!--</v-col>-->
 
         <!---Post Page-->
         <!--<v-col :cols="$vuetify.breakpoint.mdAndUp ? '5' : '12'">-->
-        <PostPage />
-        <!--</v-col>-->
-
-        <!---Right Sidebar--->
-        <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
-        <RightSidebar />
+        <div v-if="toggleSidebar == 'Newsfeed'">
+          <Newsfeed />
+        </div>
+        <div v-else>
+          <PostPage />
+        </div>
       </v-col>
     </v-row>
   </v-card>
 </template>
 <script>
-import LeftSidebar from '~/components/LeftSidebar.vue'
-import RightSidebar from '~/components/RightSidebar.vue'
+import Sidebar from '~/components/team-space/Sidebar.vue'
+import Newsfeed from '~/components/team-space/Newsfeed.vue'
+//import RightSidebar from '~/components/RightSidebar.vue'
 import PostPage from '~/components/PostPage.vue'
 import Header from '~/components/Header.vue'
 
 export default {
   components: {
-    LeftSidebar,
-    RightSidebar,
+    Sidebar,
+    Newsfeed,
     PostPage,
     Header
   },
@@ -43,12 +44,12 @@ export default {
     drawer: false,
     mini: true,
     group: '',
-    offsetTop: 0
+    offsetTop: 0,
+    toggleSidebar: 'Newsfeed'
   }),
   methods: {
-    onScroll(e) {
-      this.offsetTop = e.target.scrollTop
-      console.log('ScrollTop-' + this.offsetTop)
+    NavText(value) {
+      this.toggleSidebar = value
     }
   }
 }
