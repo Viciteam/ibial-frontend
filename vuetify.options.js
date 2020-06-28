@@ -21,7 +21,7 @@ export default {
         warning: '#FFB01B',
         error: '#F15D3D',
         success: '#5ED172',
-        dull: ''
+        flat: '#EEF2F3'
       }
     }
   }

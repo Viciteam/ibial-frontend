@@ -56,7 +56,7 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-show="$vuetify.breakpoint.mdAndUp"
+      v-show="false"
       v-model="drawer"
       :mini-variant.sync="mini"
       permanent
