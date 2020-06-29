@@ -10,7 +10,7 @@
     <v-row v-scroll:#scroll-target="onScroll" class="innerBody">
       <!--LeftSidebar--->
       <v-col class="d-flex">
-        <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
+        <!--<v-col v-show="$vuetify.breakpoint.mdAndUp" cols="3" class="pr-0">-->
         <LeftSidebar />
         <!--</v-col>-->
 
@@ -20,7 +20,7 @@
         <!--</v-col>-->
 
         <!---Right Sidebar--->
-        <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
+        <!--<v-col v-show="$vuetify.breakpoint.mdAndUp" cols="3" class="pl-0">-->
         <RightSidebar />
       </v-col>
     </v-row>

@@ -11,7 +11,9 @@
       <!--LeftSidebar--->
       <v-col class="d-flex">
         <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
-        <Sidebar @navSidebar="NavText" />
+        <div absolute>
+          <Sidebar @navSidebar="NavText" />
+        </div>
         <!--</v-col>-->
 
         <!---Post Page-->
@@ -20,24 +22,24 @@
           <Newsfeed />
         </div>
         <div v-else>
-          <PostPage />
+          <TeamRoom />
         </div>
       </v-col>
+      <v-btn fab color="blue" class="floating_msg" fixed>
+        <v-icon>mdi-comment</v-icon>
+      </v-btn>
     </v-row>
   </v-card>
 </template>
 <script>
-import Sidebar from '~/components/team-space/Sidebar.vue'
-import Newsfeed from '~/components/team-space/Newsfeed.vue'
-//import RightSidebar from '~/components/RightSidebar.vue'
-import PostPage from '~/components/PostPage.vue'
+import { Sidebar, Newsfeed, TeamRoom } from '~/components/team-space'
 import Header from '~/components/Header.vue'
 
 export default {
   components: {
     Sidebar,
     Newsfeed,
-    PostPage,
+    TeamRoom,
     Header
   },
   data: () => ({
@@ -59,5 +61,9 @@ export default {
 .innerBody {
   margin: 0 auto;
   max-width: 1100px;
+}
+.floating_msg {
+  right: 20px;
+  bottom: 20px;
 }
 </style>

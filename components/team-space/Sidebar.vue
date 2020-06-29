@@ -84,7 +84,8 @@ export default {
     item: 1,
     items: [
       { text: 'Newsfeed', icon: 'mdi-newspaper' },
-      { text: 'Team Room', icon: 'mdi-account-group' }
+      { text: 'Rooms', icon: 'mdi-account-group' },
+      { text: 'Projects & Tasks', icon: 'mdi-file-tree' }
     ]
   }),
   methods: {

@@ -32,8 +32,8 @@
             <v-icon>mdi-link-variant</v-icon>
           </v-btn>
           <v-btn
-            class="text-capitalize float-right post-button"
-            color="primary"
+            class="text-capitalize float-right post-button white--text"
+            color="blue"
             depressed
             width="30%"
             @click="submitPost"
