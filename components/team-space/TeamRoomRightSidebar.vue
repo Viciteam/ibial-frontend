@@ -81,7 +81,7 @@
         <v-divider></v-divider>
         <v-list-item @click="link">
           <v-list-item-action>
-            <v-icon>mdi-exclamation</v-icon>
+            <v-icon>mdi-alert-box-outline</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>

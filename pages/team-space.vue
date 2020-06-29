@@ -26,7 +26,7 @@
         </div>
       </v-col>
       <v-btn fab color="blue" class="floating_msg" fixed>
-        <v-icon>mdi-comment</v-icon>
+        <v-icon color="white">mdi-comment</v-icon>
       </v-btn>
     </v-row>
   </v-card>
