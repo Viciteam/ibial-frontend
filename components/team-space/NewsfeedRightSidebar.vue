@@ -33,7 +33,7 @@
       </v-row>
       <v-divider class="py-3"></v-divider>
       <h5 class="mr-10 pb-6">People</h5>
-      <v-row v-for="item in items" :key="item.message">
+      <v-row v-for="item in items" :key="item.id">
         <v-col cols="2" class="py-0">
           <img :src="item.icon" />
         </v-col>
@@ -50,18 +50,22 @@ export default {
     return {
       items: [
         {
+          id: 1,
           message: 'Hi wazzup??',
           icon: 'images/user.png'
         },
         {
+          id: 2,
           message: 'Love you guys!!',
           icon: 'images/friendsImage.png'
         },
         {
+          id: 3,
           message: 'Hangout??',
           icon: 'images/friendsImage2.png'
         },
         {
+          id: 4,
           message: 'Hows your day everyone?',
           icon: 'images/user.png'
         }

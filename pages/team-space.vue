@@ -21,8 +21,20 @@
         <div v-if="toggleSidebar == 'Newsfeed'">
           <Newsfeed />
         </div>
-        <div v-else>
+        <div v-else-if="toggleSidebar == 'Team Rooms'">
           <TeamRoom />
+        </div>
+        <div v-else-if="toggleSidebar == 'Suggested Rooms'" class="wide_space">
+          <SuggestedRooms />
+        </div>
+        <div v-else-if="toggleSidebar == 'Create Group'">
+          <CreateGroup />
+        </div>
+        <div v-else-if="toggleSidebar == 'works'">
+          <TeamSpaceWorks />
+        </div>
+        <div v-else-if="toggleSidebar == 'projects'">
+          <TeamSpaceProjects />
         </div>
       </v-col>
       <v-btn fab color="blue" class="floating_msg" fixed>
@@ -32,7 +44,15 @@
   </v-card>
 </template>
 <script>
-import { Sidebar, Newsfeed, TeamRoom } from '~/components/team-space'
+import {
+  Sidebar,
+  Newsfeed,
+  TeamRoom,
+  TeamSpaceWorks,
+  TeamSpaceProjects,
+  SuggestedRooms,
+  CreateGroup
+} from '~/components/team-space'
 import Header from '~/components/Header.vue'
 
 export default {
@@ -40,6 +60,10 @@ export default {
     Sidebar,
     Newsfeed,
     TeamRoom,
+    TeamSpaceWorks,
+    TeamSpaceProjects,
+    SuggestedRooms,
+    CreateGroup,
     Header
   },
   data: () => ({
@@ -65,5 +89,8 @@ export default {
 .floating_msg {
   right: 20px;
   bottom: 20px;
+}
+.wide_space {
+  width: 100%;
 }
 </style>

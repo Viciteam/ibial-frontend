@@ -7,18 +7,38 @@
       <div class="px-0">
         <v-list flat dense>
           <v-list-item-group v-model="item">
-            <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              @click="nav(item.text)"
-            >
+            <v-list-item @click="nav('Newsfeed')">
               <v-list-item-icon class="mr-3">
-                <v-icon v-text="item.icon"></v-icon>
+                <v-icon>mdi-newspaper</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
+                <v-list-item-title>Newsfeed</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
+            <v-list-group class="mr-3">
+              <v-icon slot="prependIcon">mdi-account-group</v-icon>
+              <template v-slot:activator>
+                <v-list-item-title class="ml-n5 px-0"
+                  >Team Rooms</v-list-item-title
+                >
+              </template>
+              <v-list-item @click="nav('Team Rooms')">
+                <v-list-item-icon>
+                  <v-icon>mdi-work</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>General Room</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item @click="nav('Suggested Rooms')">
+                <v-list-item-icon>
+                  <v-icon>mdi-work</v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>Suggested Rooms</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-group>
             <v-list-group class="mr-3">
               <v-icon slot="prependIcon">mdi-file-tree</v-icon>
               <template v-slot:activator>
@@ -26,16 +46,16 @@
                   >Projects & Tasks</v-list-item-title
                 >
               </template>
-              <v-list-item>
-                <v-list-item-icon class="mr-3">
+              <v-list-item @click="nav('works')">
+                <v-list-item-icon>
                   <v-icon>mdi-work</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
-                  <v-list-item-title>Works</v-list-item-title>
+                  <v-list-item-title>My Work</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-icon class="mr-3">
+              <v-list-item @click="nav('projects')">
+                <v-list-item-icon>
                   <v-icon>mdi-work</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
