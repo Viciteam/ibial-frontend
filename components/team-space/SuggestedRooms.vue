@@ -76,6 +76,7 @@
                               text
                               small
                               class="text-capitalize mt-0 white--text"
+                              @click="dialog = true"
                               >Create</v-btn
                             >
                           </v-col>
