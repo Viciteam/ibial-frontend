@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar flat app>
+    <v-app-bar clipped-left clipped-right flat app>
       <v-app-bar-nav-icon @click.stop="mini = !mini"></v-app-bar-nav-icon>
       <router-link to="/">
         <v-img
