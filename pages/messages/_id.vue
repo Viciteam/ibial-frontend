@@ -11,22 +11,47 @@
       <LeftDrawer />
     </v-navigation-drawer>
 
-    <v-card flat width="100%" class="pa-0 ma-0 room__viewport">
-      <v-app-bar flat floating dense>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-        <v-toolbar-title>Page title</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
+    <v-card flat width="100%" class="pa-0 px-4 ma-0 room__viewport-container">
+      <v-app-bar width="100%" class="room__viewport--header" floating flat>
+        <v-avatar tile class="rounded-lg mr-3">
+          <v-img src="https://cdn.vuetifyjs.com/images/lists/3.jpg"></v-img>
+        </v-avatar>
+        <div class="d-block mt-1">
+          <div class="body1 font-weight-bold">Team Name</div>
+          <div class="caption mt-1">
+            10 members · <span class="accent--text">Add Description</span>
+          </div>
+        </div>
       </v-app-bar>
+      <ChatView class="room__viewport" />
+
+      <v-card flat>
+        <v-row no-gutters align="center">
+          <v-btn icon color="accent">
+            <v-icon>mdi-emoticon-happy</v-icon>
+          </v-btn>
+          <v-btn icon color="accent">
+            <v-icon>mdi-image</v-icon>
+          </v-btn>
+          <v-btn icon color="accent">
+            <v-icon>mdi-video</v-icon>
+          </v-btn>
+          <v-text-field
+            v-model="message"
+            append-outer-icon="mdi-send"
+            clear-icon="mdi-close"
+            clearable
+            color="accent"
+            class="ml-3"
+            placeholder="Type a message"
+            @click:append-outer="
+              ''
+
+
+            "
+          ></v-text-field>
+        </v-row>
+      </v-card>
     </v-card>
 
     <v-navigation-drawer
@@ -46,11 +71,13 @@
 <script>
 import { LeftDrawer } from '~/components/messages'
 import { GroupDetails } from '~/components/messages/right-drawer'
+import { ChatView } from '~/components/messages/middle'
 
 export default {
   layout: 'room',
   components: {
     LeftDrawer: LeftDrawer,
+    ChatView: ChatView,
     GroupDetails: GroupDetails
   }
 }
@@ -60,8 +87,17 @@ export default {
 .row__container--height {
   height: 100%;
 }
+.room__viewport-container {
+  height: calc(100vh - 64px);
+}
 .room__viewport {
-  height: calc(124vh - 162px);
+  height: calc(100vh - 191px);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.room__viewport--header {
+  height: calc(100vh - 52px);
 }
 </style>
 <style>
