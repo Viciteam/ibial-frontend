@@ -3,11 +3,11 @@
     <Header />
 
     <v-container fluid>
-      <v-content>
+      <v-main>
         <client-only>
           <nuxt />
         </client-only>
-      </v-content>
+      </v-main>
     </v-container>
   </v-app>
 </template>

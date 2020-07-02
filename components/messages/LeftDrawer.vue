@@ -3,7 +3,7 @@
     <v-card tile flat class="tabs__container">
       <v-tabs
         v-model="tabs"
-        color="accent"
+        color="primary"
         height="45px"
         class="pt-4 px-6"
         grow

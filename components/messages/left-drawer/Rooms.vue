@@ -11,18 +11,18 @@
     ></v-text-field>
 
     <v-row no-gutters class="pt-4 px-4" align="center">
-      <span class="font-weight-bold pl-2">Team Chat</span>
+      <span class="font-weight-bold pl-2 secondary--text">Team Chat</span>
       <v-spacer></v-spacer>
 
       <div>
-        <v-btn small icon color="secondary">
-          <v-icon color="secondary">mdi-dots-horizontal</v-icon>
+        <v-btn small icon color="tertiary">
+          <v-icon>mdi-dots-horizontal</v-icon>
         </v-btn>
-        <v-btn small icon color="secondary">
-          <v-icon color="secondary">mdi-cog</v-icon>
+        <v-btn small icon color="tertiary">
+          <v-icon>mdi-cog</v-icon>
         </v-btn>
-        <v-btn small icon color="secondary">
-          <v-icon color="secondary">mdi-file-document-edit</v-icon>
+        <v-btn small icon color="tertiary">
+          <v-icon>mdi-file-document-edit</v-icon>
         </v-btn>
       </div>
     </v-row>
@@ -52,10 +52,12 @@
         </v-badge>
 
         <v-list-item-content>
-          <v-list-item-title class="body-2">{{ item.name }}</v-list-item-title>
-          <v-list-item-subtitle class="caption mt-1">{{
-            item.subtitle
-          }}</v-list-item-subtitle>
+          <v-list-item-title class="body-2">
+            {{ item.name }}
+          </v-list-item-title>
+          <v-list-item-subtitle class="caption mt-1">
+            {{ item.subtitle }}
+          </v-list-item-subtitle>
         </v-list-item-content>
 
         <v-badge class="mx-2" color="green accent-4" dot></v-badge>

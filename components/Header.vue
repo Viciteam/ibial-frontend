@@ -16,7 +16,7 @@
       </router-link>
       <v-text-field
         v-show="$vuetify.breakpoint.mdAndUp"
-        prepend-inner-icon="search"
+        prepend-inner-icon="mdi-magnify"
         label="Search"
         rounded
         background-color="#eeeeee"

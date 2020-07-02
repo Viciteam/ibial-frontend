@@ -1,10 +1,10 @@
 <template>
   <v-app light>
-    <v-content>
+    <v-main>
       <client-only>
         <nuxt />
       </client-only>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
