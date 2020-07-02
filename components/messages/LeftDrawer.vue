@@ -1,9 +1,19 @@
 <template>
-  <v-container class="px-0" color="grey lighten-2">
+  <v-container class="px-0 pt-0" color="grey lighten-2">
     <v-card tile flat class="tabs__container">
-      <v-tabs v-model="tabs" color="accent" grow>
-        <v-tab :key="0" class="text-capitalize">Team Chat</v-tab>
-        <v-tab :key="1" class="text-capitalize">Discussions</v-tab>
+      <v-tabs
+        v-model="tabs"
+        color="accent"
+        height="45px"
+        class="pt-4 px-6"
+        grow
+      >
+        <v-tab :key="0" class="text-capitalize tab__item--btn rounded-t-lg"
+          >Team Chat</v-tab
+        >
+        <v-tab :key="1" class="text-capitalize tab__item--btn rounded-t-lg"
+          >Discussions</v-tab
+        >
       </v-tabs>
     </v-card>
     <v-card class="mb-0" tile flat>
@@ -43,5 +53,8 @@ export default {
   z-index: 3;
   width: 100%;
   top: 0;
+}
+.tab__item--btn {
+  overflow: hidden;
 }
 </style>

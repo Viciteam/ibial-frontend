@@ -2,9 +2,19 @@
   <div>
     <v-list>
       <v-list-item v-for="(item, index) in items" :key="index" color="accent">
-        <v-list-item-avatar size="35" class="my-1 item__list--avatar">
-          <v-img :src="item.avatar"></v-img>
-        </v-list-item-avatar>
+        <v-badge
+          bordered
+          bottom
+          color="green accent-4"
+          class="item__list--avatar"
+          dot
+          offset-x="25"
+          offset-y="12"
+        >
+          <v-list-item-avatar size="35" class="my-1 ">
+            <v-img :src="item.avatar"></v-img>
+          </v-list-item-avatar>
+        </v-badge>
 
         <div
           class="d-block mt-5 pa-4 secondary lighten-3 rounded-xl item__list--content"

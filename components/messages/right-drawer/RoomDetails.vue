@@ -11,15 +11,15 @@
       </div>
     </v-row>
 
-    <span class="secondary--text body-2 d-block px-4 mt-2">General Info</span>
-    <v-list dense>
+    <span class="secondary--text body-2 d-block px-4 mt-4">General Info</span>
+    <v-list>
       <v-list-item link>
         <v-list-item-avatar size="35" class="my-0 mr-1">
           <v-icon>mdi-alert-circle-outline</v-icon>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>About</v-list-item-title>
+          <v-list-item-title class="body-2">About</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item link>
@@ -28,7 +28,7 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Settings</v-list-item-title>
+          <v-list-item-title class="body-2">Settings</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -45,12 +45,21 @@
 
         "
       >
-        <v-list-item-avatar size="35" class="my-1">
-          <v-img :src="item.avatar"></v-img>
-        </v-list-item-avatar>
+        <v-badge
+          bordered
+          bottom
+          color="green accent-4"
+          dot
+          offset-x="23"
+          offset-y="12"
+        >
+          <v-list-item-avatar size="35" class="my-1 mx-1 mr-3">
+            <v-img :src="item.avatar"></v-img>
+          </v-list-item-avatar>
+        </v-badge>
 
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title class="body-2">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>

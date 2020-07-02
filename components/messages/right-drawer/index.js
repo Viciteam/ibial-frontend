@@ -1,3 +1,3 @@
-import GroupDetails from './GroupDetails'
+import RoomDetails from './RoomDetails'
 
-export { GroupDetails }
+export { RoomDetails }
