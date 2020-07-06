@@ -124,7 +124,7 @@
       </div>
     </v-card>
 
-    <v-card flat class="pa-4">
+    <!--  <v-card flat class="pa-4">
       <div class="text-center">
         Your Referral Link:
       </div>
@@ -175,7 +175,7 @@
           </v-col>
         </v-row>
       </div>
-    </v-card>
+    </v-card>-->
   </div>
 </template>
 <script>

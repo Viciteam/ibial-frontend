@@ -67,59 +67,6 @@
         </v-list>
       </div>
     </v-card>
-
-    <v-card flat class="pa-4">
-      <div class="text-center">
-        Your Referral Link:
-      </div>
-      <div class="text-center ">
-        <v-row>
-          <v-col class="text-right">
-            <a href="#"
-              ><v-icon color="blue" style="font-size:25px;"
-                >mdi-checkbox-multiple-blank</v-icon
-              ></a
-            >
-          </v-col>
-          <v-col class="text-left">
-            <a href="#"
-              ><v-icon color="blue" style="font-size:25px;"
-                >mdi-pencil</v-icon
-              ></a
-            >
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <a href="#"
-              ><v-icon color="#4D6FA9" style="font-size:25px;"
-                >mdi-facebook</v-icon
-              ></a
-            >
-            <a href="#"
-              ><v-icon color="#65BBF2" style="font-size:25px;"
-                >mdi-twitter</v-icon
-              ></a
-            >
-            <a href="#"
-              ><v-icon color="#007AAA" style="font-size:25px;"
-                >mdi-linkedin</v-icon
-              ></a
-            >
-            <a href="#"
-              ><v-icon color="#CB1F24" style="font-size:25px;"
-                >mdi-pinterest</v-icon
-              ></a
-            >
-            <a href="#"
-              ><v-icon color="#F44336" style="font-size:25px;"
-                >mdi-gmail</v-icon
-              ></a
-            >
-          </v-col>
-        </v-row>
-      </div>
-    </v-card>
   </div>
 </template>
 <script>
