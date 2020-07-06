@@ -85,6 +85,7 @@ export default {
 .innerBody {
   margin: 0 auto;
   max-width: 1100px;
+  margin-top: 65px;
 }
 .floating_msg {
   right: 20px;
