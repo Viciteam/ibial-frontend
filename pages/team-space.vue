@@ -4,6 +4,7 @@
     class="mx-auto overflow-hidden"
     color="#F2F5FF"
     height="100%"
+    flat
   >
     <Header />
 

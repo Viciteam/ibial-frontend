@@ -6,7 +6,12 @@
           <v-btn text tile class="text-capitalize active no-radius" width="50%"
             >Post
           </v-btn>
-          <v-btn text tile class="text-capitalize no-radius" width="50%"
+          <v-btn
+            v-if="teamspace()"
+            text
+            tile
+            class="text-capitalize no-radius"
+            width="50%"
             >Sell Something</v-btn
           >
         </div>
@@ -592,6 +597,13 @@ export default {
         }
         // Start the reader job - read file as a data url (base64 format)
         reader.readAsDataURL(input.files[0])
+      }
+    },
+    teamspace() {
+      if (this.$route.path == '/' || this.$route.path == '/home') {
+        return true
+      } else {
+        return false
       }
     }
   }
