@@ -21,6 +21,7 @@ module.exports = {
     'prettier/prettier': 'error',
     semi: 0,
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+    'no-unused-vars': 'off', // disable default
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },

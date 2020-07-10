@@ -1,0 +1,20 @@
+#app,
+#app div,
+#app a,
+#app span,
+#app table,
+#app thead,
+#app tbody,
+#app tr,
+#app td {
+  font-family: 'Spartan', sans-serif !important;
+  letter-spacing: 0px !important;
+}
+
+#app body {
+  background: #e5e5e5 !important;
+}
+
+#app .rounded-lg {
+  border-radius: 10px;
+}

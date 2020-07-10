@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 require('dotenv').config()
 
 export default {
@@ -13,7 +11,7 @@ export default {
    */
   head: {
     titleTemplate: '%s - ' + process.env.APP_NAME,
-    title: process.env.APP_NAME || '',
+    title: 'iBial' || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,7 +21,23 @@ export default {
         content: process.env.APP_DESCRIPTION || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -32,7 +46,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/global.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -84,6 +98,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend() {}
   }
 }
