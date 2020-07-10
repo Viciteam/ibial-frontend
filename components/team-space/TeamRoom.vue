@@ -1,6 +1,6 @@
 <template>
-  <div class="NewsfeedPage">
-    <v-card class="mb-3" flat width="100%">
+  <div class="TeamRoomPage">
+    <v-card class="mb-3" flat>
       <img src="images/backdrop.svg" width="100%" />
       <v-row>
         <v-col cols="1">
@@ -102,4 +102,8 @@ export default {
   }
 }
 </script>
-<style></style>
+<style>
+.TeamRoomPage {
+  width: 800px;
+}
+</style>

@@ -68,7 +68,8 @@
           </v-btn>
         </v-col>
         <v-col cols="4">
-          <v-select label="Select Filter" dense solo flat> </v-select>
+          <v-select height="10" label="Select Filter" dense solo flat>
+          </v-select>
         </v-col>
         <v-col cols="4">
           <v-select label="Sort by" dense solo flat> </v-select>
@@ -656,5 +657,8 @@ export default {
 .postComment_date {
   position: absolute;
   right: 12px;
+}
+.v-input .v-label {
+  font-size: 12px;
 }
 </style>

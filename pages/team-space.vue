@@ -6,15 +6,16 @@
     height="100%"
     flat
   >
-    <Header />
+    <Header @navSidebar="NavText" />
 
     <v-row class="innerBody">
       <!--LeftSidebar--->
-      <v-col class="d-flex">
+      <v-col v-show="$vuetify.breakpoint.mdAndUp" cols="2"></v-col>
+      <v-col cols="10" class="d-flex">
         <!--<v-col v-show="$vuetify.breakpoint.mdAndUp">-->
-        <div absolute>
-          <Sidebar @navSidebar="NavText" />
-        </div>
+        <!--<div absolute width="200">-->
+        <!--<Sidebar @navSidebar="NavText" />-->
+        <!--</div>-->
         <!--</v-col>-->
 
         <!---Post Page-->
@@ -46,7 +47,6 @@
 </template>
 <script>
 import {
-  Sidebar,
   Newsfeed,
   TeamRoom,
   TeamSpaceWorks,
@@ -58,7 +58,6 @@ import Header from '~/components/Header.vue'
 
 export default {
   components: {
-    Sidebar,
     Newsfeed,
     TeamRoom,
     TeamSpaceWorks,
