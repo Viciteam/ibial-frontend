@@ -67,8 +67,9 @@
   </div>
 </template>
 <script>
-import PostPage from '~/components/PostPage.vue'
-import TeamRoomRightSidebar from '~/components/team-space/TeamRoomRightSidebar.vue'
+import { PostPage } from '~/components/community'
+import { TeamRoomRightSidebar } from '~/components/team-space'
+
 export default {
   components: {
     PostPage,
