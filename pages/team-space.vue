@@ -54,7 +54,7 @@ import {
   SuggestedRooms,
   CreateGroup
 } from '~/components/team-space'
-import { Header } from '~/components/header'
+import Header from '~/components/Header.vue'
 
 export default {
   components: {

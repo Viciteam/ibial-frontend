@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { Header } from '~/components/header'
+import { Header } from '~/components'
 
 export default {
   components: {
