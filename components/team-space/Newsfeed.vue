@@ -17,9 +17,8 @@
   </div>
 </template>
 <script>
-import { PostPage } from '~/components/community'
-import { NewsfeedRightSidebar } from '~/components/team-space'
-
+import PostPage from '~/components/PostPage.vue'
+import NewsfeedRightSidebar from '~/components/team-space/NewsfeedRightSidebar.vue'
 export default {
   components: {
     PostPage,

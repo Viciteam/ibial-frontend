@@ -117,8 +117,7 @@
   </div>
 </template>
 <script>
-import { CreateGroup } from '~/components/team-space'
-
+import CreateGroup from '~/components/team-space/CreateGroup.vue'
 export default {
   components: {
     CreateGroup
