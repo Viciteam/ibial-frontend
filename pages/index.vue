@@ -27,10 +27,8 @@
   </v-card>
 </template>
 <script>
-import LeftSidebar from '~/components/LeftSidebar.vue'
-import RightSidebar from '~/components/RightSidebar.vue'
-import PostPage from '~/components/PostPage.vue'
-import Header from '~/components/Header.vue'
+import { Header } from '~/components/header'
+import { PostPage, LeftSidebar, RightSidebar } from '~/components/community'
 
 export default {
   components: {
@@ -48,7 +46,6 @@ export default {
   methods: {
     onScroll(e) {
       this.offsetTop = e.target.scrollTop
-      console.log('ScrollTop-' + this.offsetTop)
     }
   }
 }
