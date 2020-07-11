@@ -11,11 +11,11 @@
         <v-img src="https://cdn.vuetifyjs.com/images/lists/3.jpg"></v-img>
       </v-avatar>
       <div class="d-block mt-1">
-        <div class="title font-weight-bold">Team Name</div>
+        <div class="title secondary--text font-weight-bold">Team Name</div>
         <div class="caption">
           10 members ·
           <span
-            class="primary--text text-capitalize text pt-1"
+            class="secondary--text text-capitalize text pt-1"
             @click="
               ''
 
