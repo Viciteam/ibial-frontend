@@ -1,14 +1,42 @@
 <template>
   <v-container class="pa-0" fill-height>
-    <v-text-field
+    <v-autocomplete
+      v-model="searchedModel"
       prepend-inner-icon="mdi-magnify"
+      append-icon=""
       placeholder="Search Teams..."
       filled
       rounded
+      :items="searched"
+      item-value="id"
       dense
       color="accent"
       class="mt-5 mx-4"
-    ></v-text-field>
+    >
+      <template v-slot:selection></template>
+      <template v-slot:item="{ item }" @click="searchNow">
+        <template v-if="typeof item !== 'object'">
+          <v-list-item-content>{{ item }}</v-list-item-content>
+        </template>
+        <template v-else-if="item.type === 'room'">
+          <v-list-item-avatar>
+            <img :src="item.avatar" />
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ item.name }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </template>
+        <template v-else-if="item.type === 'message'">
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ item.name }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </template>
+      </template>
+    </v-autocomplete>
 
     <v-row no-gutters class="pt-4 px-4" align="center">
       <span class="font-weight-bold pl-2 secondary--text">Team Chat</span>
@@ -29,14 +57,10 @@
 
     <v-list two-line width="100%">
       <v-list-item
-        v-for="(item, index) in items"
+        v-for="(item, index) in rooms"
         :key="index"
         color="accent"
-        @click="
-          ''
-
-
-        "
+        link
       >
         <v-badge
           bordered
@@ -69,7 +93,8 @@
 <script>
 export default {
   data: () => ({
-    items: [
+    searchedModel: '',
+    rooms: [
       {
         avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
         name: 'Juan Dela Cruz',
@@ -145,7 +170,72 @@ export default {
         name: 'Juan Dela Cruz',
         subtitle: 'Lorem ipsum dolor sit amit ipsum dolor sit'
       }
+    ],
+    searched: [
+      { header: 'Conversations' },
+      {
+        name: 'Hi Everyone!!!',
+        type: 'message',
+        id: 12345
+      },
+      {
+        name: 'Hi Everyone!!! ',
+        type: 'message',
+        id: 12341
+      },
+      {
+        name: 'Hi Everyone!!!',
+        type: 'message',
+        id: 12342
+      },
+      {
+        name: 'Hi Everyone!!!',
+        type: 'message',
+        id: 12343
+      },
+      {
+        name: 'Hi Everyone!!!',
+        type: 'message',
+        id: 12344
+      },
+      { divider: true },
+      { header: 'People & Groups' },
+      {
+        name: 'Britta Holt',
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        type: 'room',
+        id: 12346
+      },
+      {
+        name: 'Jane Smith ',
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+        type: 'room',
+        id: 12347
+      },
+      {
+        name: 'John Smith',
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+        type: 'room',
+        id: 12348
+      },
+      {
+        name: 'Sandra Williams',
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+        type: 'room',
+        id: 12349
+      },
+      {
+        name: 'Maria Labo',
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+        type: 'room',
+        id: 12340
+      }
     ]
-  })
+  }),
+  methods: {
+    searchNow() {
+      this.searchedModel = ''
+    }
+  }
 }
 </script>
