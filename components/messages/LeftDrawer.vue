@@ -3,17 +3,17 @@
     <v-card tile flat class="tabs__container">
       <v-tabs
         v-model="tabs"
-        color="primary"
+        color="secondary"
         height="45px"
         class="pt-4 px-6"
         grow
       >
-        <v-tab :key="0" class="text-capitalize tab__item--btn rounded-t-lg"
-          >Team Chat</v-tab
-        >
-        <v-tab :key="1" class="text-capitalize tab__item--btn rounded-t-lg"
-          >Discussions</v-tab
-        >
+        <v-tab :key="0" class="text-capitalize tab__item--btn rounded-t-lg">
+          Team Chat
+        </v-tab>
+        <v-tab :key="1" class="text-capitalize tab__item--btn rounded-t-lg">
+          Discussions
+        </v-tab>
       </v-tabs>
     </v-card>
     <v-card class="mb-0" tile flat>

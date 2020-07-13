@@ -2,7 +2,7 @@
   <v-container fill-height class="pa-0">
     <v-app-bar
       width="100%"
-      class="room__viewport--header"
+      class="room__viewport--header px-5"
       floating
       flat
       color="transparent"
@@ -11,11 +11,11 @@
         <v-img src="https://cdn.vuetifyjs.com/images/lists/3.jpg"></v-img>
       </v-avatar>
       <div class="d-block mt-1">
-        <div class="title font-weight-bold">Team Name</div>
+        <div class="title secondary--text font-weight-bold">Team Name</div>
         <div class="caption">
           10 members ·
           <span
-            class="primary--text text-capitalize text pt-1"
+            class="secondary--text text-capitalize text pt-1"
             @click="
               ''
 
@@ -35,6 +35,7 @@
           :key="i"
           class="pa-2"
           :class="onSenderReciever(item.sender_id)"
+          max-width="70%"
           flat
         >
           <v-card
@@ -42,7 +43,7 @@
             :class="onSenderRecieverFlex(item.sender_id)"
             flat
           >
-            <div class="align-self-end mx-2">
+            <div v-if="item.sender_id !== 12345" class="mx-2 align-self-end">
               <v-badge
                 bordered
                 bottom
@@ -58,13 +59,15 @@
               </v-badge>
             </div>
 
-            <div>
+            <div :class="onSenderReciever(item.sender_id)">
               <span
                 v-if="item.sender_id === 12345 ? false : true"
                 class="caption"
               >
                 Juan Dela Cruz
               </span>
+
+              <!-- Purely Text -->
               <v-card class="pa-3 rounded-lg body-2" color="flat" flat tile>
                 <span>
                   Flex item asdasd asdasd asdasd asdasd asdasd asdasd asdasd
@@ -72,18 +75,87 @@
                   asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
                   asdasdasdasd asdasdasdasd asdasd
                 </span>
+              </v-card>
 
-                <video width="320" height="240" controls>
-                  <source
-                    src="https://www.youtube.com/watch?v=a3ICNMQW7Ok"
-                    type="video/mp4"
-                  />
-                  <source
-                    src="https://www.youtube.com/watch?v=a3ICNMQW7Ok"
-                    type="video/ogg"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+              <!-- Images -->
+              <v-card
+                flat
+                width="400px"
+                class="rounded-lg mt-5"
+                :class="onSenderRecieverJustify(item.sender_id)"
+              >
+                <v-row>
+                  <v-col
+                    v-for="n in 4"
+                    :key="n"
+                    class="d-flex child-flex"
+                    cols="6"
+                  >
+                    <v-card flat tile class="d-flex">
+                      <v-img
+                        :src="
+                          `https://picsum.photos/500/300?image=${n * 5 + 10}`
+                        "
+                        :lazy-src="
+                          `https://picsum.photos/10/6?image=${n * 5 + 10}`
+                        "
+                        aspect-ratio="1"
+                        class="grey lighten-2 rounded-lg"
+                      >
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="grey lighten-5"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-card>
+
+              <!-- Video -->
+              <v-card
+                flat
+                width="400px"
+                height="250px"
+                class="rounded-lg mt-5 video__embed--container"
+                :class="onSenderRecieverJustify(item.sender_id)"
+              >
+                <video-embed
+                  class="video__embed--iframe mb-n2"
+                  css="embed-responsive-1by1"
+                  src="https://www.youtube.com/watch?v=s4ObxcdXoFE"
+                  sandbox="allow-scripts allow-same-origin allow-presentation"
+                ></video-embed>
+              </v-card>
+
+              <!-- Link Preview -->
+              <v-card
+                flat
+                width="400px"
+                class="rounded-lg mt-5 video__embed--container grey"
+                :class="onSenderRecieverJustify(item.sender_id)"
+              >
+                <v-img
+                  contain
+                  src="https://www.digitalchalk.com/wp-content/uploads/2019/04/top-add-thumbnail-course-offering.jpg"
+                >
+                </v-img>
+
+                <v-card flat class="flat pa-3" tile>
+                  <div class="body-1 font-weight-bold">
+                    Course Offering - Udemy.com
+                  </div>
+                  <div class="body-2 mb-2">Lorem ipsum sit amit dolor...</div>
+                  <div class="caption">https://www.udemy.com/</div>
+                </v-card>
               </v-card>
             </div>
           </v-card>
@@ -153,6 +225,13 @@ export default {
      */
     onSenderRecieverFlex(sender_id) {
       return sender_id === 12345 ? 'flex-row-reverse' : 'flex-row'
+    },
+
+    /**
+     * justify position changer base on who is the sender and whos the reciever
+     */
+    onSenderRecieverJustify(sender_id) {
+      return sender_id === 12345 ? 'my-0 ml-auto mr-0' : 'my-0 ml-0 mr-auto'
     }
   }
 }
@@ -192,5 +271,17 @@ export default {
   background-color: darkgrey;
   outline: 1px solid slategrey;
   border-radius: 10px !important;
+}
+.video__embed--iframe iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.video__embed--iframe {
+  height: 100%;
+  width: 100%;
+}
+.video__embed--container {
+  overflow: hidden;
 }
 </style>
