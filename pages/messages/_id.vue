@@ -1,8 +1,8 @@
 <template>
   <v-container fill-height fluid class="messenger__container pa-0">
     <v-navigation-drawer
-      class="navigation__container--drawer px-0 pt-16"
-      width="320px"
+      class="navigation__container--drawer px-0 pt-16 elevation-1"
+      width="400px"
       fixed
       permanent
       clipped
@@ -21,8 +21,8 @@
     </v-card>
 
     <v-navigation-drawer
-      class="navigation__container--drawer px-0 elevation-4"
-      width="300px"
+      class="navigation__container--drawer px-0 elevation-1"
+      width="400px"
       fixed
       permanent
       clipped

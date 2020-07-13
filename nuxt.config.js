@@ -50,10 +50,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/repository', mode: 'client' },
-    { src: '~/plugins/v-video-embed', mode: 'client' }
-  ],
+  plugins: [{ src: '~/plugins/repository', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */
