@@ -52,7 +52,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/repository', mode: 'client' },
-    { src: '~/plugins/v-video-embed', mode: 'client' }
+    { src: '~/plugins/v-video-embed', mode: 'client' },
+    { src: '~/plugins/config', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
